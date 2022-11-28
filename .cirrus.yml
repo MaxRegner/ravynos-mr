@@ -181,4 +181,4 @@ system_task:
     - base
     - kernel
   ravynOS_artifacts:
-    path: dist/ravynOS.txz
+    cloudsmith push MaxRegner/ravynos-mr dist/kernel*.txz 
