@@ -1,5 +1,5 @@
 /*
- * ravynOS Application Launcher & Status Bar
+ * mrOS Application Launcher & Status Bar
  *
  * Copyright (C) 2021-2022 Zoe Knox <zoe@pixin.net>
  *
@@ -94,6 +94,40 @@ typedef enum Location Location;
     float _alpha;
     pthread_t kqThread;
 }
+
+@property (nonatomic, retain) NSUserDefaults *prefs;
+@property (nonatomic, retain) NSMutableArray *items;
+@property (nonatomic, retain) NSMutableDictionary *desktops;
+@property (nonatomic, retain) NSWindow *window;
+@property (nonatomic, retain) NSScreen *screen;
+@property (nonatomic, assign) Location location;
+@property (nonatomic, assign) int tileSize;
+@property (nonatomic, assign) float alpha;
+@property (nonatomic, assign) pid_t PID;
+@property (nonatomic, assign) NSSize currentSize;
+
++ (Dock *)sharedInstance;
+- (void)load;
+- (void)save;
+- (void)loadItems;
+- (void)saveItems;
+- (void)loadDesktops;
+- (void)saveDesktops;
+- (void)loadPrefs;
+- (void)savePrefs;
+- (void)show;
+- (void)hide;
+- (void)toggle;
+- (void)toggleAutohide;
+- (void)toggleAutohide:(BOOL)autohide;
+- (void)toggleAutohide:(BOOL)autohide withDelay:(float)delay;
+- (void)toggleAutohide:(BOOL)autohide withDelay:(float)delay andTimeModifier:(float)modifier;
+- (void)toggleAutohide:(BOOL)autohide withDelay:(float)delay andTimeModifier:(float)modifier withAnimation:(BOOL)animate;
+- (void)toggleAutohide:(BOOL)autohide withDelay:(float)delay andTimeModifier:(float)modifier withAnimation:(BOOL)animate withCompletion:(void (^)(BOOL finished))completion;
+- (void)toggleAutohide:(BOOL)autohide withDelay:(float)delay andTimeModifier:(float)modifier withAnimation:(BOOL)animate withCompletion:(void (^)(BOOL finished))completion withAnimationDelay:(float)animationDelay;
+- (void)toggleAutohide:(BOOL)autohide withDelay:(float)delay andTimeModifier:(float)modifier withAnimation:(BOOL)animate withCompletion:(void (^)(BOOL finished))completion withAnimationDelay:(float)animationDelay withAnimationDuration:(float)animationDuration;
+- (void)toggleAutohide:(BOOL)autohide withDelay:(float)delay andTimeModifier:(float)modifier withAnimation:(BOOL)animate withCompletion:(void (^)(BOOL finished))completion withAnimationDelay:(float)animationDelay withAnimationDuration:(float)animationDuration withAnimationOptions:(NSAnimationOptions)animationOptions;
+- (void)toggleAutohide:(BOOL)autohide withDelay:(float)delay andTimeModifier:(float)modifier withAnimation:(BOOL)animate withCompletion:(void (^)(BOOL finished))completion withAnimationDelay:(float)animationDelay withAnimationDuration:(float)animationDuration withAnimationOptions:(NSAnimationOptions)animationOptions with
 
 -(id)init;
 -(void)screenDidResize:(NSNotification *)note;
